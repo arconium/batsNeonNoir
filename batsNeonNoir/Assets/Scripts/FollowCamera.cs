@@ -7,7 +7,7 @@ public class FollowCamera : MonoBehaviour {
     public float cameraMoveSpeed = 3.0f;
     public float deadZoneX = 3f;
     public float deadZoneY = 3f;
-    public GameObject player;
+    public GameObject playerGameObject;
     public Camera c;
 
     void Start () {
@@ -26,13 +26,14 @@ public class FollowCamera : MonoBehaviour {
         {
             //gameObject.transform.position = new Vector3(player.transform.position.x, 0, -10);
         }*/
-        float dx = Mathf.Abs(player.transform.position.x - gameObject.transform.position.x);
-        float dy = Mathf.Abs(player.transform.position.y - gameObject.transform.position.y);
+
+        float dx = Mathf.Abs(playerGameObject.transform.position.x - gameObject.transform.position.x);
+        float dy = Mathf.Abs(playerGameObject.transform.position.y - gameObject.transform.position.y);
         if (dx > deadZoneX || dy > deadZoneY)
         {
-            Vector3 thing = player.transform.position;
-            thing.z = -10;
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, thing, cameraMoveSpeed * Time.deltaTime);
+            Vector3 playerLocationRef = playerGameObject.transform.position;
+            playerLocationRef.z = -10;
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, playerLocationRef, cameraMoveSpeed * Time.deltaTime);
         }
 	}
 }

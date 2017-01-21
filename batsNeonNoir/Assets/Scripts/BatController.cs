@@ -12,9 +12,9 @@ public class BatController : MonoBehaviour {
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
 
-    public bool facingRight = true;
-
-	void Start () {
+       
+       
+    void Start () {
 
 	}
 
@@ -39,7 +39,9 @@ public class BatController : MonoBehaviour {
         batVelY += oscillation;
 
         gameObject.transform.position += new Vector3(batVelX * Time.deltaTime, batVelY * Time.deltaTime, 0);
-
-        
+                
     }
+
+    
+
 }
