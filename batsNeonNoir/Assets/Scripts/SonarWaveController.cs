@@ -14,6 +14,8 @@ public class SonarWaveController : MonoBehaviour {
 	public float particleSpotlightAngle;
 	public Color color;
 
+	float t;
+
 	void Start () {
 		sonarParticles = new List<GameObject>();
 		float angleIncrement = (endAngle - startAngle) / particleResolution;
@@ -27,5 +29,11 @@ public class SonarWaveController : MonoBehaviour {
 			pc.color = color;
 			sonarParticles.Add(newParticle);
 		}
+	}
+
+	void Update() {
+		if (t > timeToFadeOut)
+			Destroy(gameObject);
+		t += Time.deltaTime;
 	}
 }
