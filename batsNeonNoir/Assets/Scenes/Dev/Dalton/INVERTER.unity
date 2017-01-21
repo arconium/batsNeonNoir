@@ -569,7 +569,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: cbe2dfda42c0ebc42a52cfbc795c1f76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6304b2c870e88b847b3ebdb9c9850222, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -862,6 +862,7 @@ GameObject:
   - component: {fileID: 596609531}
   - component: {fileID: 596609530}
   - component: {fileID: 596609529}
+  - component: {fileID: 596609535}
   m_Layer: 0
   m_Name: BatPlayer
   m_TagString: Player
@@ -992,6 +993,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596609535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596609528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce77a508b569f08459a0b5e8f803f04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batVelX: 0
+  batVelY: 0
+  friction: 0.1
+  swoopAmplitude: 0.5
+  swoopFrequency: 8
+  swoopMin: 0.2
+  batSpeed: 0.7
 --- !u!1 &672409403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1226,69 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &788370000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 788370002}
+  - component: {fileID: 788370001}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &788370001
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788370000}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &788370002
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788370000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &928794812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1848,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: -500
   m_Sprite: {fileID: 21300000, guid: d8398feab6955964c82d17560ca82a8e, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1 &1811947922
@@ -2070,6 +2152,7 @@ GameObject:
   - component: {fileID: 1971288289}
   - component: {fileID: 1971288288}
   - component: {fileID: 1971288287}
+  - component: {fileID: 1971288292}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2145,6 +2228,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971288292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971288286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b26222dc79c0743bfe529e718b7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMoveSpeed: 10
+  deadZoneX: 3
+  deadZoneY: 3
+  playerGameObject: {fileID: 0}
 --- !u!1 &2012532195
 GameObject:
   m_ObjectHideFlags: 0
