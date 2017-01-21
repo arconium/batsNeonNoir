@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Pickupable : MonoBehaviour {
 
-    // MOVE THIS TO GameManager
+    // MOVE THIS TO GameManager ?
     public int currentPoints;
     
     // Keep this here
     public int worthPoints = 100;
     
-    bool pickedUp = false;
+   // bool pickedUp = false;
 
 
     void Start ()
@@ -21,9 +21,9 @@ public class Pickupable : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D collider)
     {
-        pickedUp = true;
+      //  pickedUp = true;
         GivePoints();
-        gameObject.SetActive(false);
+       gameObject.SetActive(false);
     }
 
     public void GivePoints()
@@ -36,10 +36,6 @@ public class Pickupable : MonoBehaviour {
 
 	void Update ()
     {
-		if(pickedUp)
-        {
-            gameObject.SetActive(false);
-        }
-
+		
 	}
 }

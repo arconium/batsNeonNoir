@@ -11,11 +11,16 @@ public class BatController : MonoBehaviour {
     public float swoopFrequency = 8;
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
-    bool forward = true;      
+    bool forward = true;
+
+    public int playerHealth = 3;
 
     void Start () {
 
+        
 	}
+
+    
 
     void FixedUpdate() {
 
@@ -49,8 +54,7 @@ public class BatController : MonoBehaviour {
         }
 
         gameObject.transform.position += new Vector3(batVelX * Time.deltaTime, batVelY * Time.deltaTime, 0);
-                
-    }
+   }
 
     
 

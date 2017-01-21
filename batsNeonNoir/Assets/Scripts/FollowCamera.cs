@@ -29,7 +29,7 @@ public class FollowCamera : MonoBehaviour {
         float dx = Mathf.Abs(playerGameObject.transform.position.x - gameObject.transform.position.x);
         float dy = Mathf.Abs(playerGameObject.transform.position.y - gameObject.transform.position.y);
         Vector3 screen = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0)) - Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Debug.Log(screen.x);
+        
         if (dx > deadZoneX || dy > deadZoneY)
         {
             Vector3 playerLocationRef = playerGameObject.transform.position;
