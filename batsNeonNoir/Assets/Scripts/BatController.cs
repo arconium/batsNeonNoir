@@ -11,9 +11,8 @@ public class BatController : MonoBehaviour {
     public float swoopFrequency = 8;
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
+    bool forward = true;      
 
-       
-       
     void Start () {
 
 	}
@@ -37,6 +36,17 @@ public class BatController : MonoBehaviour {
         batVelY *= (1 - friction);
 
         batVelY += oscillation;
+
+        if (forward && batVelX < 0)
+        {
+            forward = false;
+            gameObject.transform.forward *= -1;
+        }
+        else if (!forward && batVelX > 0)
+        {
+            forward = true;
+            gameObject.transform.forward *= -1;
+        }
 
         gameObject.transform.position += new Vector3(batVelX * Time.deltaTime, batVelY * Time.deltaTime, 0);
                 

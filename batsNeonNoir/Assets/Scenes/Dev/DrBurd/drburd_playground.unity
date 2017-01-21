@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 520784015}
   - component: {fileID: 520784014}
   - component: {fileID: 520784018}
-  - component: {fileID: 520784019}
   - component: {fileID: 520784020}
   m_Layer: 0
   m_Name: BatPlayer
@@ -467,21 +466,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &520784019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 520784013}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4115305f2b3742bd929cb36d3f10be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Wave_Source: {fileID: 157329167}
-  Sonar_Prefab: {fileID: 1048800048902482, guid: ef1bcbb26d57d4459b85e34dea241d69,
-    type: 2}
-  Wave_Forward_Force: 450
 --- !u!95 &520784020
 Animator:
   serializedVersion: 3
@@ -664,11 +648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b26222dc79c0743bfe529e718b7fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMoveSpeed: 5
-  deadZoneX: 2.75
-  deadZoneY: 1
+  cameraMoveSpeed: 8.9
+  deadZoneX: 3
+  deadZoneY: 2
   playerGameObject: {fileID: 520784013}
-  c: {fileID: 631063781}
 --- !u!1 &725089331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1643,49 @@ EdgeCollider2D:
   - {x: 22.8, y: 12.8}
   - {x: 22.8, y: -12.8}
   - {x: -22.8, y: -12.8}
+--- !u!1 &1764936459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1764936461}
+  - component: {fileID: 1764936460}
+  m_Layer: 0
+  m_Name: Goal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1764936460
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764936459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!4 &1764936461
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764936459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.96, y: -20.9, z: 0}
+  m_LocalScale: {x: 18.86, y: -1.6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820245877
 GameObject:
   m_ObjectHideFlags: 0
