@@ -17,9 +17,29 @@ public class BatController : MonoBehaviour {
     public int playerHealth = 3;
 
     void Start () {
-        SpawnSonar(1, new Vector3(1,-1,0), 60, 60, 5, 45, new Color(1, 1, 1, 1));
         
 	}    
+
+    void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            
+            //copy paste ;_;
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 pos = transform.position;
+            Vector3 batToMouse = mouse - pos;
+            batToMouse.z = transform.position.z;
+
+            //these are just guesses/defaults for a wave
+            SpawnSonar(5    , 
+                batToMouse, 
+                60, 
+                60, 
+                5, 
+                60, 
+                new Color(1, 0, 0, 1)
+            );
+        }
+    }
 
     void SpawnSonar(
         float speed, 
@@ -32,8 +52,9 @@ public class BatController : MonoBehaviour {
             GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
             wc.speed = speed;
-            wc.startAngle = Vector3.Angle(Vector3.right, batToMouse) - angularWaveWidth/2;
-            wc.endAngle = Vector3.Angle(Vector3.right, batToMouse) + angularWaveWidth/2;
+            Debug.Log(Mathf.Atan2(batToMouse.y, batToMouse.x));
+            wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;
+            wc.endAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI  + angularWaveWidth/2;
             wc.speed = speed;
             wc.particleSpotlightAngle = particleSpotlightAngle;
             wc.particleResolution = particleResolution;
