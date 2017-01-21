@@ -21,8 +21,9 @@ public class SonarWaveController : MonoBehaviour {
 		float angleIncrement = (endAngle - startAngle) / particleResolution;
 		for (float curAngle = startAngle; curAngle < endAngle; curAngle+=angleIncrement) {
 			GameObject newParticle = Instantiate(sonarParticle, gameObject.transform.position, Quaternion.identity, gameObject.transform) as GameObject;
-			Vector3 dir = Quaternion.AngleAxis(curAngle, Vector3.forward) * Vector3.right;
 			SonarParticleController pc = newParticle.GetComponent<SonarParticleController>();
+			
+			Vector3 dir = Quaternion.AngleAxis(curAngle, Vector3.forward) * Vector3.right;
 			pc.light.spotAngle = particleSpotlightAngle;
 			pc.timeToFade = timeToFadeOut;
 			pc.velocity = speed * dir;

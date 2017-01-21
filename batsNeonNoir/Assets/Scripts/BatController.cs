@@ -11,16 +11,34 @@ public class BatController : MonoBehaviour {
     public float swoopFrequency = 8;
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
+    public GameObject sonarWavePrefab;
     bool forward = true;
 
     public int playerHealth = 3;
 
     void Start () {
-
+        SpawnSonar(1, new Vector3(1,-1,0), 60, 60, 5, 45, new Color(1, 1, 1, 1));
         
-	}
+	}    
 
-    
+    void SpawnSonar(
+        float speed, 
+        Vector3 batToMouse,
+        float angularWaveWidth,
+        int particleResolution,
+        float timeToFadeOut,
+        float particleSpotlightAngle,
+        Color color) {
+            GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
+            wc.speed = speed;
+            wc.startAngle = Vector3.Angle(Vector3.right, batToMouse) - angularWaveWidth/2;
+            wc.endAngle = Vector3.Angle(Vector3.right, batToMouse) + angularWaveWidth/2;
+            wc.speed = speed;
+            wc.particleSpotlightAngle = particleSpotlightAngle;
+            wc.particleResolution = particleResolution;
+            wc.color = color;
+    }
 
     void FixedUpdate() {
 
