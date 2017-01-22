@@ -63,6 +63,29 @@ public class StartOptions : MonoBehaviour {
 
 	}
 
+	public void CreditsButtonClicked()
+	{
+		//Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+		Invoke ("LoadCreditsDelayed", fadeColorAnimationClip.length * .5f);
+
+		//Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+		animColorFade.SetTrigger ("fade");
+		
+	}
+
+	public void LoadCreditsDelayed()
+	{
+		int creditsScene = 2;
+		//Pause button now works if escape is pressed since we are no longer in Main menu.
+		inMainMenu = false;
+
+		//Hide the main menu UI element
+		showPanels.HideMenu ();
+
+		//Load the selected scene, by scene index number in build settings
+		SceneManager.LoadScene (creditsScene);
+	}
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += SceneWasLoaded;
