@@ -131,6 +131,7 @@ public class BatController : MonoBehaviour {
                 colorOpts[GUIController.colorIndex].lingerRate,
                 colorOpts[GUIController.colorIndex].intensity
             );
+
         }
         if (Input.GetMouseButtonDown(1)) {
 			GUIController.colorIndex = (GUIController.colorIndex + 1) % colorOpts.Count;

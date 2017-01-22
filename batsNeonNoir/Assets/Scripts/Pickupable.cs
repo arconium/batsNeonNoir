@@ -6,42 +6,52 @@ public class Pickupable : MonoBehaviour {
     // Keep this here
     public int worthPoints = 100;
     public GameObject player;
-   // bool pickedUp = false;
+    bool pickedUp = false;
 
-   //public AudioSource audiof;
 
     void Start ()
     {
 		
 	}
 
-    
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player")) {//CHECK THAT IT IS A PLAYER GUYS. please...
-            AudioSource audiof = GetComponent<AudioSource>();
-            audiof.Play();
 
+        //CHECK THAT IT IS A PLAYER!
+        if (collider.CompareTag("Player"))
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
 
-            //pickedUp = true;
+            pickedUp = true;
             GivePoints();
             //gameObject.SetActive(false);
+
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject, 3);
+
         }
     }
+
 
     public void GivePoints()
     {
         //player.GetComponent<BatController>().score += worthPoints;
 		//Debug.Log("Worth Points: " + worthPoints);
 		GUIController.score += worthPoints;
+
+        
     }
 
 
 	void Update ()
     {
-		
+		if(pickedUp == true)
+        {
+            gameObject.SetActive(false);
+        }
+
 	}
 }
