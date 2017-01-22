@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.125, g: 0.125, b: 0.125, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &272608900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &330696500
 Transform:
   m_ObjectHideFlags: 0
@@ -365,10 +365,26 @@ MonoBehaviour:
   sonarWavePrefab: {fileID: 1456724433972024, guid: dde4e8c49ce33ec41a5d1eb9a448fc73,
     type: 2}
   colorOpts:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 1, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    speed: 0
+    timeToFadeOut: 0
+    spotlightAngle: 0
+    particleResolution: 0
+    angularWaveWidth: 0
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    speed: 0
+    timeToFadeOut: 0
+    spotlightAngle: 0
+    particleResolution: 0
+    angularWaveWidth: 0
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    speed: 0
+    timeToFadeOut: 0
+    spotlightAngle: 0
+    particleResolution: 0
+    angularWaveWidth: 0
   playerHealth: 3
+  score: 0
 --- !u!212 &520784016
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -889,6 +905,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &929304413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 929304415}
+  - component: {fileID: 929304414}
+  m_Layer: 0
+  m_Name: idle spider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &929304414
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929304413}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: cb9cdb90d9dd19041bc388f804306cb0, type: 3}
+  m_Color: {r: 0.24137926, g: 1, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &929304415
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929304413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -33.83, y: -26.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075952823
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,8 +1011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 300
+  player: {fileID: 0}
 --- !u!61 &1075952826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1024,8 +1104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1118502127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1166,8 +1246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!1 &1446988450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,8 +1290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1446988453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1303,8 +1383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1572240440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2520,6 +2600,70 @@ PolygonCollider2D:
       - {x: 10.125, y: 1.2149999}
       - {x: 10.125, y: 1.3725}
       - {x: 10.08, y: 1.4174999}
+--- !u!1 &1740567701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1740567703}
+  - component: {fileID: 1740567702}
+  m_Layer: 0
+  m_Name: snake move 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1740567702
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740567701}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 040b47a6966c3ee4086fde4e08161b1d, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.17241383, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &1740567703
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740567701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.675682, y: -29.509678, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748177129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,6 +2702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764936461}
   - component: {fileID: 1764936460}
+  - component: {fileID: 1764936462}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -2586,12 +2731,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764936459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.96, y: -20.9, z: 0}
-  m_LocalScale: {x: 18.86, y: -1.6, z: 1}
+  m_LocalPosition: {x: 37.96, y: -22.22, z: 0}
+  m_LocalScale: {x: 16.1, y: -5.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764936462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764936459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa29a145e7984904ba272c1ce8ede295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1775516799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,8 +2946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1911576446
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2841,3 +2997,67 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &2015719307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2015719309}
+  - component: {fileID: 2015719308}
+  m_Layer: 0
+  m_Name: snake bite 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2015719308
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015719307}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6863d4c21c4a36649a1d049ddb8b33b5, type: 3}
+  m_Color: {r: 0.986207, g: 0, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!4 &2015719309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015719307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -35.48397, y: -27.121864, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

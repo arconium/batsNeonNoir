@@ -12,7 +12,6 @@ public class BatController : MonoBehaviour {
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
     public GameObject sonarWavePrefab;
-
 	public float inv = -1.0f;
 
     public List<ColorOpt> colorOpts;
@@ -33,14 +32,12 @@ public class BatController : MonoBehaviour {
             angularWaveWidth = _angularWaveWidth;
         }
     }
-    int sonarIndex;
     bool forward = true;
 
     public int playerHealth = 3;
     public int score = 0;
 
     // public AudioClip batAudioClip;
-
     void Start () {
         
         //these are just guesses/defaults for a wave settings
@@ -89,28 +86,25 @@ public class BatController : MonoBehaviour {
             // Play bat chirp SFX
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
-            
 
+			//copy paste ;_;
+			Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector3 pos = transform.position;
+			Vector3 batToMouse = mouse - pos;
+			batToMouse.z = transform.position.z;
 
+			SpawnSonar(colorOpts[GUIController.colorIndex].speed, 
+				batToMouse, 
+				colorOpts[GUIController.colorIndex].angularWaveWidth, 
+				colorOpts[GUIController.colorIndex].particleResolution, 
+				colorOpts[GUIController.colorIndex].timeToFadeOut, 
+				colorOpts[GUIController.colorIndex].spotlightAngle, 
+				colorOpts[GUIController.colorIndex].color
+			);
 
-
-            //copy paste ;_;
-            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 pos = transform.position;
-            Vector3 batToMouse = mouse - pos;
-            batToMouse.z = transform.position.z;
-
-            SpawnSonar(colorOpts[sonarIndex].speed, 
-                batToMouse, 
-                colorOpts[sonarIndex].angularWaveWidth, 
-                colorOpts[sonarIndex].particleResolution, 
-                colorOpts[sonarIndex].timeToFadeOut, 
-                colorOpts[sonarIndex].spotlightAngle, 
-                colorOpts[sonarIndex].color
-            );
         }
         if (Input.GetMouseButtonDown(1)) {
-            sonarIndex = (sonarIndex + 1) % colorOpts.Count;
+			GUIController.colorIndex = (GUIController.colorIndex + 1) % colorOpts.Count;
         }
     }
 
