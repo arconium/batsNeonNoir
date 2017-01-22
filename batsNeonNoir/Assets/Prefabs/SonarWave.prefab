@@ -60,3 +60,4 @@ MonoBehaviour:
   endAngle: 30
   particleSpotlightAngle: 30
   color: {r: 1, g: 1, b: 1, a: 0}
+  lingerInterval: 0.1

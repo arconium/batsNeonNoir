@@ -22,13 +22,31 @@ public class BatController : MonoBehaviour {
         public float spotlightAngle;
         public int particleResolution;
         public float angularWaveWidth;
-        public ColorOpt(Color _color, float _speed, float _timeToFadeOut, float _spotlightAngle, int _particleResolution, float _angularWaveWidth) {
+
+        public float lingerInterval;
+        public float lingerRate;
+
+        public float intensity;
+
+        public ColorOpt(
+        Color _color, 
+        float _speed, 
+        float _timeToFadeOut, 
+        float _spotlightAngle, 
+        int _particleResolution, 
+        float _angularWaveWidth,
+        float _lingerInterval,
+        float _lingerRate,
+        float _intensity) {
             color = _color;
             speed = _speed;
             timeToFadeOut = _timeToFadeOut;
             spotlightAngle = _spotlightAngle;
             particleResolution = _particleResolution;
             angularWaveWidth = _angularWaveWidth;
+            lingerInterval = _lingerInterval;
+            lingerRate = _lingerRate;
+            intensity = _intensity;
         }
     }
     int sonarIndex;
@@ -36,6 +54,9 @@ public class BatController : MonoBehaviour {
 
     public int playerHealth = 3;
     public int score = 0;
+
+    //worst way of doing this ever. BUT DO NOT TOUCH IT. please.
+    public GameObject lingeringParent;
 
     void Start () {
         
@@ -81,7 +102,11 @@ public class BatController : MonoBehaviour {
                 colorOpts[sonarIndex].particleResolution, 
                 colorOpts[sonarIndex].timeToFadeOut, 
                 colorOpts[sonarIndex].spotlightAngle, 
-                colorOpts[sonarIndex].color
+                colorOpts[sonarIndex].color,
+                lingeringParent,
+                colorOpts[sonarIndex].lingerInterval,
+                colorOpts[sonarIndex].lingerRate,
+                colorOpts[sonarIndex].intensity
             );
         }
         if (Input.GetMouseButtonDown(1)) {
@@ -96,11 +121,15 @@ public class BatController : MonoBehaviour {
         int particleResolution,
         float timeToFadeOut,
         float particleSpotlightAngle,
-        Color color) {
+        Color color,
+        GameObject lingeringParent,
+        float lingerInterval,
+        float lingerRate,
+        float intensity) {//worst idea of doing lingering param ever
             GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
             wc.speed = speed;
-            Debug.Log(Mathf.Atan2(batToMouse.y, batToMouse.x));
+            //Debug.Log(Mathf.Atan2(batToMouse.y, batToMouse.x));
             wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;
             wc.endAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI  + angularWaveWidth/2;
             wc.speed = speed;
@@ -108,6 +137,10 @@ public class BatController : MonoBehaviour {
             wc.particleSpotlightAngle = particleSpotlightAngle;
             wc.particleResolution = particleResolution;
             wc.color = color;
+            wc.lingeringParent = lingeringParent;
+            wc.lingerInterval = lingerInterval;
+            wc.lingerRate = lingerRate;
+            wc.intensity = intensity;
     }
 
     void FixedUpdate() {
