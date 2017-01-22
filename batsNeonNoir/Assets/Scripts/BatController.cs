@@ -12,6 +12,7 @@ public class BatController : MonoBehaviour {
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
     public GameObject sonarWavePrefab;
+	public float inv = -1.0f;
 
     public List<ColorOpt> colorOpts;
     [System.SerializableAttribute]
@@ -49,8 +50,8 @@ public class BatController : MonoBehaviour {
             intensity = _intensity;
         }
     }
-    int sonarIndex;
     bool forward = true;
+    int sonarIndex = 0;
 
     public int playerHealth = 3;
     public int score = 0;
@@ -58,6 +59,7 @@ public class BatController : MonoBehaviour {
     //worst way of doing this ever. BUT DO NOT TOUCH IT. please.
     public GameObject lingeringParent;
 
+    // public AudioClip batAudioClip;
     void Start () {
         
         //these are just guesses/defaults for a wave settings
@@ -87,9 +89,23 @@ public class BatController : MonoBehaviour {
         ));*/
 	}    
 
+	public void takedamage(int damage) {
+		if (inv <= 0.0f) {
+			playerHealth -= damage;
+			inv = 2.0f;
+
+            GUIController.health -= 1;
+        }
+	}
+
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            
+		if (inv > 0.0f) {
+			inv -= Time.deltaTime;
+			GetComponent<SpriteRenderer> ().color = Color.red;
+		} else {
+			GetComponent<SpriteRenderer> ().color = Color.white;
+		}
+        if (Input.GetMouseButtonDown(0)) {            
             //copy paste ;_;
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 pos = transform.position;
@@ -108,9 +124,13 @@ public class BatController : MonoBehaviour {
                 colorOpts[sonarIndex].lingerRate,
                 colorOpts[sonarIndex].intensity
             );
+
+            // Play bat chirp SFX
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
         }
         if (Input.GetMouseButtonDown(1)) {
-            sonarIndex = (sonarIndex + 1) % colorOpts.Count;
+			GUIController.colorIndex = (GUIController.colorIndex + 1) % colorOpts.Count;
         }
     }
 

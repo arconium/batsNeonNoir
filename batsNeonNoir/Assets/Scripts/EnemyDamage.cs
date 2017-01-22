@@ -8,6 +8,7 @@ public class EnemyDamage : MonoBehaviour {
     public int enemyDamage = 1;
     //public GameObject player;
 
+
     void Start () {
 		
 	}
@@ -15,10 +16,12 @@ public class EnemyDamage : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        // Give damage
         BatController giveDamage = collision.collider.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
-        giveDamage.playerHealth -= enemyDamage;
-        
+		giveDamage.takedamage(enemyDamage);
+		
+
     }
 
 
