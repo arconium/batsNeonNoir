@@ -28,12 +28,15 @@ public class RechargeUpdater : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)) {
 
 			if (GUIController.colorIndex == 0) { // Red
+				Debug.Log("Red: " + GUIController.colorIndex);
 				redFlashAnimator.SetTrigger("RedClicked");
 			}
 			if (GUIController.colorIndex == 1) { // Green
+				Debug.Log("Green: " + GUIController.colorIndex);
 				greenFlashAnimator.SetTrigger("GreenClicked");
 			}
 			if (GUIController.colorIndex == 2) { // Blue
+				Debug.Log("Blue: " + GUIController.colorIndex);
 				blueFlashAnimator.SetTrigger("BlueClicked");
 			}
 		}

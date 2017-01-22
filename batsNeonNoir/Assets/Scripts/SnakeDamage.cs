@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour {
+public class SnakeDamage : MonoBehaviour {
 
     // Keep this here
     public int enemyDamage = 1;
@@ -14,12 +14,15 @@ public class EnemyDamage : MonoBehaviour {
 	}
 
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D( Collider2D other2)
     {
+		// Attack animation
+
         // Give damage
-        BatController giveDamage = collision.collider.GetComponent<BatController>();
+        BatController giveDamage = other2.gameObject.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
-		GUIController.health -= 1;
+        giveDamage.playerHealth -= enemyDamage;
+        
     }
 
 
