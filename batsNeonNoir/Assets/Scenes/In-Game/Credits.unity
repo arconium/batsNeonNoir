@@ -158,8 +158,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits:\n\nNot Art \n\nDalton Hildreth\nScott Myran\nJonathan Burd\nMax
-    Hammerlund\n(?) \"Shane\" (?)\n\nArt\n\nJaremie Forsman\nMegan Blooflat\n\n..."
+  m_Text: "Credits:\n\nArt\n\nJaremie Forsman\nMegan Blooflat\n\nNot Art \n\nDalton
+    Hildreth\nScott Myran\nJonathan Burd\nMax Hammerlund\nShane Sheng Xun Ong\n"
 --- !u!222 &152610630
 CanvasRenderer:
   m_ObjectHideFlags: 0
