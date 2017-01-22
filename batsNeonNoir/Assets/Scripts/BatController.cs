@@ -71,7 +71,9 @@ public class BatController : MonoBehaviour {
 		if (inv <= 0.0f) {
 			playerHealth -= damage;
 			inv = 2.0f;
-		}
+
+            GUIController.health -= 1;
+        }
 	}
 
     void Update() {

@@ -20,7 +20,7 @@ public class EnemyDamage : MonoBehaviour {
         BatController giveDamage = collision.collider.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
 		giveDamage.takedamage(enemyDamage);
-		GUIController.health -= 1;
+		
 
     }
 
