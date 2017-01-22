@@ -55,6 +55,8 @@ public class BatController : MonoBehaviour {
     public int playerHealth = 3;
     public int score = 0;
 
+    public Animation hurt;
+
     //worst way of doing this ever. BUT DO NOT TOUCH IT. please.
     public GameObject lingeringParent;
     public GameObject waveParent;
@@ -96,6 +98,7 @@ public class BatController : MonoBehaviour {
 			inv = 2.0f;
 
             GUIController.health -= 1;
+            GetComponent<Animator>().Play("Hurt");
         }
 	}
 
