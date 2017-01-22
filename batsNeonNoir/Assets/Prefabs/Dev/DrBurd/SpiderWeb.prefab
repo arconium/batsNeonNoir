@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58237925291974288}
   - component: {fileID: 114026975934847678}
   m_Layer: 0
-  m_Name: SpiderWeb 1
+  m_Name: SpiderWeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

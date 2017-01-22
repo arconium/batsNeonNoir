@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114888284033092790}
   - component: {fileID: 114026774873574344}
   m_Layer: 0
-  m_Name: Spider 1
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,10 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -13.4, y: 16.7, z: 0}
-  - {x: -13.4, y: 20, z: 0}
+  - {x: -13.4, y: 12, z: 0}
+  - {x: -13.4, y: 25, z: 0}
   toWeb: 0
-  speed: 1
+  speed: 2
   goal: {fileID: 0}
 --- !u!212 &212990664733263692
 SpriteRenderer:
