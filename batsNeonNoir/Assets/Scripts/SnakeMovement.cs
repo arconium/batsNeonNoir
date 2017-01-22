@@ -20,5 +20,6 @@ public class SnakeMovement : MonoBehaviour {
 			current = (current + 1) % points.Length;
 		}
 		transform.position = Vector3.MoveTowards(transform.position, points[current], speed * Time.deltaTime);
+		
 	}
 }
