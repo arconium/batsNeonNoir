@@ -122,7 +122,7 @@ Light:
   m_SpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
   intensity: 0
   lingeringParent: {fileID: 1623195660968140, guid: 11abc708f9da1754f962d1a983dd42e5,
     type: 2}
-  doLinger: 1
+  doLinger: 0
 --- !u!212 &212746258880200026
 SpriteRenderer:
   m_ObjectHideFlags: 1

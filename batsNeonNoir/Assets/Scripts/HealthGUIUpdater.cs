@@ -19,7 +19,7 @@ public class HealthGUIUpdater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log ("GUI Controller.Health: " + GUIController.health);
+//		Debug.Log ("GUI Controller.Health: " + GUIController.health);
 
 		if (GUIController.health >= 3) {
 			healthZero.SetActive (true);

@@ -88,7 +88,6 @@ public class BatController : MonoBehaviour {
             60
         ));*/
         
-        Debug.Log(colorOpts[GUIController.colorIndex].color);
 	}    
 
 	public void takedamage(int damage) {
@@ -115,7 +114,6 @@ public class BatController : MonoBehaviour {
             Vector3 batToMouse = mouse - pos;
             batToMouse.z = transform.position.z;
 
-            Debug.Log(colorOpts[GUIController.colorIndex].color);
             SpawnSonar(colorOpts[GUIController.colorIndex].speed, 
                 batToMouse, 
                 colorOpts[GUIController.colorIndex].angularWaveWidth, 

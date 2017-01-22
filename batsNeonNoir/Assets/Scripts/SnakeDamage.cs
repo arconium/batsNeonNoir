@@ -16,16 +16,18 @@ public class SnakeDamage : MonoBehaviour {
 
     public void OnTriggerEnter2D( Collider2D other)
     {
-        // Attack animation
+        if (other.CompareTag("Player")) { //dont want to attack particles please :)
+            // Attack animation
 
-        Debug.Log(other);
+            //Debug.Log(other);
 
-        // Give damage
-        BatController giveDamage = other.gameObject.GetComponent<BatController>();
-        //BatController giveDamage = player.GetComponent<BatController>();
+            // Give damage
+            BatController giveDamage = other.gameObject.GetComponent<BatController>();
+            //BatController giveDamage = player.GetComponent<BatController>();
 
 
-		giveDamage.takedamage(enemyDamage);
+            giveDamage.takedamage(enemyDamage);
+        }
 
     }
 

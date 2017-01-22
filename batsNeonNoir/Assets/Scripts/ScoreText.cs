@@ -14,7 +14,7 @@ public class ScoreText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log ("Score = " + GUIController.score);
+//		Debug.Log ("Score = " + GUIController.score);
 		scoreTextContainer.text = "Score: " + GUIController.score;
 	}
 }
