@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pickupable : MonoBehaviour {
-
-    // MOVE THIS TO GameManager ?
-    public int currentPoints;
-    
     // Keep this here
     public int worthPoints = 100;
-    
+    public GameObject player;
    // bool pickedUp = false;
-
 
     void Start ()
     {
@@ -23,14 +18,13 @@ public class Pickupable : MonoBehaviour {
     {
       //  pickedUp = true;
         GivePoints();
-       gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void GivePoints()
     {
-        currentPoints += currentPoints + worthPoints;
-
-        Debug.Log(currentPoints);
+        player.GetComponent<BatController>().score += worthPoints;
     }
 
 
