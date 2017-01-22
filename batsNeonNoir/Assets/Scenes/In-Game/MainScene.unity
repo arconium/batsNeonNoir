@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &272608900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -466,27 +466,26 @@ MonoBehaviour:
   sonarWavePrefab: {fileID: 1456724433972024, guid: dde4e8c49ce33ec41a5d1eb9a448fc73,
     type: 2}
   colorOpts:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
-  - {r: 0, g: 0, b: 1, a: 0}
-  speeds:
-  - 1
-  - 1
-  - 1
-  timesToFadeOut:
-  - 2
-  - 2
-  - 2
-  spotlightAngles:
-  - 60
-  - 60
-  - 60
-  particleResolutions: 3c0000003c0000003c000000
-  angularWaveWidths:
-  - 60
-  - 60
-  - 60
+  - color: {r: 1, g: 0, b: 0, a: 0}
+    speed: 3
+    timeToFadeOut: 2
+    spotlightAngle: 60
+    particleResolution: 60
+    angularWaveWidth: 60
+  - color: {r: 0, g: 1, b: 0, a: 0}
+    speed: 4
+    timeToFadeOut: 2
+    spotlightAngle: 60
+    particleResolution: 60
+    angularWaveWidth: 60
+  - color: {r: 0, g: 0, b: 1, a: 0}
+    speed: 5
+    timeToFadeOut: 2
+    spotlightAngle: 60
+    particleResolution: 60
+    angularWaveWidth: 60
   playerHealth: 3
+  score: 0
 --- !u!212 &520784016
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -931,7 +930,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0fea2bba6bd3444f9615ba61d0b2af7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0207a29c0afbb7a46b1ed12b5431c114, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1290,8 +1289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 300
+  player: {fileID: 0}
 --- !u!61 &1075952826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,8 +1382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1118502127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1735,8 +1734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!1 &1446988450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,8 +1778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1446988453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1906,8 +1905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1572240440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3589,8 +3588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e1a9dacc46ee42992cbd6098bdfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoints: 0
   worthPoints: 100
+  player: {fileID: 0}
 --- !u!61 &1911576446
 BoxCollider2D:
   m_ObjectHideFlags: 0

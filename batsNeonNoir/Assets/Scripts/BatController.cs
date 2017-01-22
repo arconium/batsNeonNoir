@@ -12,19 +12,58 @@ public class BatController : MonoBehaviour {
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
     public GameObject sonarWavePrefab;
-    public List<Color> colorOpts;
-    public List<float> speeds;
-    public List<float> timesToFadeOut;
-    public List<float> spotlightAngles;
-    public List<int> particleResolutions;
-    public List<float> angularWaveWidths;
+
+    public List<ColorOpt> colorOpts;
+    [System.SerializableAttribute]
+    public class ColorOpt {
+        public Color color;
+        public float speed;
+        public float timeToFadeOut;
+        public float spotlightAngle;
+        public int particleResolution;
+        public float angularWaveWidth;
+        public ColorOpt(Color _color, float _speed, float _timeToFadeOut, float _spotlightAngle, int _particleResolution, float _angularWaveWidth) {
+            color = _color;
+            speed = _speed;
+            timeToFadeOut = _timeToFadeOut;
+            spotlightAngle = _spotlightAngle;
+            particleResolution = _particleResolution;
+            angularWaveWidth = _angularWaveWidth;
+        }
+    }
     int sonarIndex;
     bool forward = true;
 
     public int playerHealth = 3;
+    public int score = 0;
 
     void Start () {
         
+        //these are just guesses/defaults for a wave settings
+        /*colorOpts.Add(new ColorOpt(
+            new Color(1,0,0,1),
+            1,
+            2,
+            60,
+            60,
+            60
+        ));
+        colorOpts.Add(new ColorOpt(
+            new Color(0,1,0,1),
+            2,
+            2,
+            60,
+            60,
+            60
+        ));
+        colorOpts.Add(new ColorOpt(
+            new Color(0,0,1,1),
+            3,
+            2,
+            60,
+            60,
+            60
+        ));*/
 	}    
 
     void Update() {
@@ -36,14 +75,13 @@ public class BatController : MonoBehaviour {
             Vector3 batToMouse = mouse - pos;
             batToMouse.z = transform.position.z;
 
-            //these are just guesses/defaults for a wave
-            SpawnSonar(speeds[sonarIndex], 
+            SpawnSonar(colorOpts[sonarIndex].speed, 
                 batToMouse, 
-                angularWaveWidths[sonarIndex], 
-                particleResolutions[sonarIndex], 
-                timesToFadeOut[sonarIndex], 
-                spotlightAngles[sonarIndex], 
-                colorOpts[sonarIndex]
+                colorOpts[sonarIndex].angularWaveWidth, 
+                colorOpts[sonarIndex].particleResolution, 
+                colorOpts[sonarIndex].timeToFadeOut, 
+                colorOpts[sonarIndex].spotlightAngle, 
+                colorOpts[sonarIndex].color
             );
         }
         if (Input.GetMouseButtonDown(1)) {
