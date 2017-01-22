@@ -18,7 +18,8 @@ public class EnemyDamage : MonoBehaviour {
         BatController giveDamage = collision.collider.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
         giveDamage.playerHealth -= enemyDamage;
-        
+
+        Debug.Log(giveDamage.playerHealth);
     }
 
 
