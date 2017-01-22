@@ -22,7 +22,9 @@ public class Pickupable : MonoBehaviour {
         if (collider.CompareTag("Player"))
         {
             AudioSource audio = GetComponent<AudioSource>();
+
             audio.Play();
+            Debug.Log(audio.clip);
 
             pickedUp = true;
             GivePoints();
@@ -48,10 +50,6 @@ public class Pickupable : MonoBehaviour {
 
 	void Update ()
     {
-		if(pickedUp == true)
-        {
-            gameObject.SetActive(false);
-        }
 
 	}
 }
