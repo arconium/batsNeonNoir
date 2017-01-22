@@ -12,6 +12,8 @@ public class BatController : MonoBehaviour {
     public float swoopMin = 0.2f;
     public float batSpeed = 0.7f;
     public GameObject sonarWavePrefab;
+    public List<Color> colorOpts;
+    int colorIndex;
     bool forward = true;
 
     public int playerHealth = 3;
@@ -30,14 +32,17 @@ public class BatController : MonoBehaviour {
             batToMouse.z = transform.position.z;
 
             //these are just guesses/defaults for a wave
-            SpawnSonar(5    , 
+            SpawnSonar(5, 
                 batToMouse, 
                 60, 
                 60, 
                 2, 
                 60, 
-                new Color(1, 0, 0, 1)
+                colorOpts[colorIndex]
             );
+        }
+        if (Input.GetMouseButtonDown(1)) {
+            colorIndex = (colorIndex + 1) % colorOpts.Count;
         }
     }
 
