@@ -20,6 +20,8 @@ public class SonarParticleController : MonoBehaviour {
 	//worst way EVER
 	public GameObject lingeringParent;
 
+	public bool doLinger;
+
 	void Start() {
 		lingerLaying = false;
 		faderT = 0;
@@ -80,7 +82,8 @@ public class SonarParticleController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (!other.CompareTag("SonarParticle") && !other.CompareTag("Player")) {
-			lingerLaying = true;
+			if (doLinger)
+				lingerLaying = true;
 		}
 	}
 	void OnTriggerExit2D(Collider2D other)

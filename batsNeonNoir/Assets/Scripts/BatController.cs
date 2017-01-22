@@ -51,7 +51,6 @@ public class BatController : MonoBehaviour {
         }
     }
     bool forward = true;
-    int sonarIndex = 0;
 
     public int playerHealth = 3;
     public int score = 0;
@@ -87,6 +86,8 @@ public class BatController : MonoBehaviour {
             60,
             60
         ));*/
+        
+        Debug.Log(colorOpts[GUIController.colorIndex].color);
 	}    
 
 	public void takedamage(int damage) {
@@ -105,6 +106,7 @@ public class BatController : MonoBehaviour {
 		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
 		}
+
         if (Input.GetMouseButtonDown(0)) {            
             //copy paste ;_;
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -112,17 +114,18 @@ public class BatController : MonoBehaviour {
             Vector3 batToMouse = mouse - pos;
             batToMouse.z = transform.position.z;
 
-            SpawnSonar(colorOpts[sonarIndex].speed, 
+            Debug.Log(colorOpts[GUIController.colorIndex].color);
+            SpawnSonar(colorOpts[GUIController.colorIndex].speed, 
                 batToMouse, 
-                colorOpts[sonarIndex].angularWaveWidth, 
-                colorOpts[sonarIndex].particleResolution, 
-                colorOpts[sonarIndex].timeToFadeOut, 
-                colorOpts[sonarIndex].spotlightAngle, 
-                colorOpts[sonarIndex].color,
+                colorOpts[GUIController.colorIndex].angularWaveWidth, 
+                colorOpts[GUIController.colorIndex].particleResolution, 
+                colorOpts[GUIController.colorIndex].timeToFadeOut, 
+                colorOpts[GUIController.colorIndex].spotlightAngle, 
+                colorOpts[GUIController.colorIndex].color,
                 lingeringParent,
-                colorOpts[sonarIndex].lingerInterval,
-                colorOpts[sonarIndex].lingerRate,
-                colorOpts[sonarIndex].intensity
+                colorOpts[GUIController.colorIndex].lingerInterval,
+                colorOpts[GUIController.colorIndex].lingerRate,
+                colorOpts[GUIController.colorIndex].intensity
             );
 
             // Play bat chirp SFX
@@ -149,7 +152,6 @@ public class BatController : MonoBehaviour {
             GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
 			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
             wc.speed = speed;
-            //Debug.Log(Mathf.Atan2(batToMouse.y, batToMouse.x));
             wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;
             wc.endAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI  + angularWaveWidth/2;
             wc.speed = speed;
