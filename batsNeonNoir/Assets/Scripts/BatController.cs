@@ -34,7 +34,7 @@ public class BatController : MonoBehaviour {
                 batToMouse, 
                 60, 
                 60, 
-                5, 
+                2, 
                 60, 
                 new Color(1, 0, 0, 1)
             );
@@ -56,6 +56,7 @@ public class BatController : MonoBehaviour {
             wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;
             wc.endAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI  + angularWaveWidth/2;
             wc.speed = speed;
+            wc.timeToFadeOut = timeToFadeOut;
             wc.particleSpotlightAngle = particleSpotlightAngle;
             wc.particleResolution = particleResolution;
             wc.color = color;
