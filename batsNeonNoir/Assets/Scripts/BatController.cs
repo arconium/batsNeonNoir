@@ -37,6 +37,8 @@ public class BatController : MonoBehaviour {
     public int playerHealth = 3;
     public int score = 0;
 
+    // public AudioClip batAudioClip;
+
     void Start () {
         
         //these are just guesses/defaults for a wave settings
@@ -68,7 +70,15 @@ public class BatController : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
+
+            // Play bat chirp SFX
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
             
+
+
+
+
             //copy paste ;_;
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 pos = transform.position;

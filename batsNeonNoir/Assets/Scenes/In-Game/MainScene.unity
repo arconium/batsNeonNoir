@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.08088237, g: 0.08088237, b: 0.08088237, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272608897}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 17.95, z: 0}
+  m_LocalPosition: {x: 6.4, y: 18.4, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 1}
   m_Children: []
   m_Father: {fileID: 502096265}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &272608900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 520784014}
   - component: {fileID: 520784018}
   - component: {fileID: 520784020}
+  - component: {fileID: 520784019}
   m_Layer: 0
   m_Name: BatPlayer
   m_TagString: Player
@@ -467,20 +468,20 @@ MonoBehaviour:
     type: 2}
   colorOpts:
   - color: {r: 1, g: 0, b: 0, a: 0}
-    speed: 3
-    timeToFadeOut: 2
+    speed: 6
+    timeToFadeOut: 5
     spotlightAngle: 60
     particleResolution: 60
     angularWaveWidth: 60
   - color: {r: 0, g: 1, b: 0, a: 0}
-    speed: 4
-    timeToFadeOut: 2
+    speed: 8
+    timeToFadeOut: 4
     spotlightAngle: 60
     particleResolution: 60
     angularWaveWidth: 60
   - color: {r: 0, g: 0, b: 1, a: 0}
-    speed: 5
-    timeToFadeOut: 2
+    speed: 9
+    timeToFadeOut: 3
     spotlightAngle: 60
     particleResolution: 60
     angularWaveWidth: 60
@@ -558,6 +559,86 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!82 &520784019
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520784013}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bbcda9461fdc3734eb5eaf32bdc23124, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.18
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: -0.15
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &520784020
 Animator:
   serializedVersion: 3
@@ -1290,7 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 300
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &1075952826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1365,7 +1446,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1118502124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.98, y: -1.67, z: 0}
+  m_LocalPosition: {x: -14.64, y: 0.5, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 502096265}
@@ -1383,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &1118502127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1735,7 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!1 &1446988450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1842,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446988450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.01, y: 13.6, z: 0}
+  m_LocalPosition: {x: -10.18, y: 13.96, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 1}
   m_Children: []
   m_Father: {fileID: 502096265}
@@ -1779,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &1446988453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1888,7 +1969,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1572240437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.43, y: 8.28, z: 0}
+  m_LocalPosition: {x: -31.43, y: 10.87, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 1}
   m_Children: []
   m_Father: {fileID: 502096265}
@@ -1906,7 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &1572240440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3212,7 +3293,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1748177129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.61, y: 19.37, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1825676470}
@@ -3351,7 +3432,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825676469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.65, y: 1.72, z: 0}
+  m_LocalPosition: {x: -37.56, y: 21.48, z: 0}
   m_LocalScale: {x: 0.43700933, y: 0.43700933, z: 0.66213536}
   m_Children: []
   m_Father: {fileID: 1748177130}
@@ -3589,7 +3670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
+  player: {fileID: 520784013}
 --- !u!61 &1911576446
 BoxCollider2D:
   m_ObjectHideFlags: 0
