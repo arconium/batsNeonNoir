@@ -21,7 +21,7 @@ public class SnakeDamage : MonoBehaviour {
         // Give damage
         BatController giveDamage = other2.gameObject.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
-        giveDamage.playerHealth -= enemyDamage;
+		giveDamage.takedamage(enemyDamage);
         
     }
 
