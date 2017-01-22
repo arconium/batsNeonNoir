@@ -12,11 +12,13 @@ public class WebCollider : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision) {
+		collision.gameObject.GetComponent<BatController> ().batSpeed /= 5;
 		spider.GetComponent<Spider_Movement>().goal = collision.transform;
 		spider.GetComponent<Spider_Movement> ().toWeb = true;
 	}
 
 	public void OnTriggerExit2D(Collider2D collision) {
+		collision.gameObject.GetComponent<BatController> ().batSpeed *= 5;
 		spider.GetComponent<Spider_Movement> ().toWeb = false;
 	}
 	
