@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4890665724353950}
   - component: {fileID: 212013749696266304}
-  - component: {fileID: 58237925291974288}
   - component: {fileID: 114026975934847678}
+  - component: {fileID: 70382260268600056}
   m_Layer: 0
   m_Name: SpiderWeb
   m_TagString: Untagged
@@ -42,8 +42,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58237925291974288
-CircleCollider2D:
+--- !u!70 &70382260268600056
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -53,9 +53,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 11.334137
+  m_Offset: {x: 0.16817856, y: 0.3724352}
+  m_Size: {x: 11.347263, y: 11.524504}
+  m_Direction: 1
 --- !u!114 &114026975934847678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ee6262af2cd0eb4c864b3988cac845b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be05ef551df66ab47825eb3e548aa814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
