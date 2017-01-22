@@ -19,9 +19,9 @@ public class EnemyDamage : MonoBehaviour {
         // Give damage
         BatController giveDamage = collision.collider.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
-        giveDamage.playerHealth -= enemyDamage;
+		giveDamage.takedamage(enemyDamage);
 
-        Debug.Log(giveDamage.playerHealth);
+        //Debug.Log(giveDamage.playerHealth);
     }
 
 

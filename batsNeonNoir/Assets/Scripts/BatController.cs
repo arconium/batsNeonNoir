@@ -13,6 +13,8 @@ public class BatController : MonoBehaviour {
     public float batSpeed = 0.7f;
     public GameObject sonarWavePrefab;
 
+	public float inv = -1.0f;
+
     public List<ColorOpt> colorOpts;
     [System.SerializableAttribute]
     public class ColorOpt {
@@ -68,7 +70,20 @@ public class BatController : MonoBehaviour {
         ));*/
 	}    
 
+	public void takedamage(int damage) {
+		if (inv <= 0.0f) {
+			playerHealth -= damage;
+			inv = 2.0f;
+		}
+	}
+
     void Update() {
+		if (inv > 0.0f) {
+			inv -= Time.deltaTime;
+			GetComponent<SpriteRenderer> ().color = Color.red;
+		} else {
+			GetComponent<SpriteRenderer> ().color = Color.white;
+		}
         if (Input.GetMouseButtonDown(0)) {
 
             // Play bat chirp SFX
