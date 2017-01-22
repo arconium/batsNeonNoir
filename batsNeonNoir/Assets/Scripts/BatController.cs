@@ -17,6 +17,7 @@ public class BatController : MonoBehaviour {
     bool forward = true;
 
     public int playerHealth = 3;
+    public int score = 0;
 
     void Start () {
         
