@@ -210,7 +210,7 @@ Prefab:
     - target: {fileID: 224180183600663496, guid: 3010e10d5298f254698a144b63602009,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224617606734935240, guid: 3010e10d5298f254698a144b63602009,
         type: 2}
@@ -230,7 +230,7 @@ Prefab:
     - target: {fileID: 224617606734935240, guid: 3010e10d5298f254698a144b63602009,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224222659428773296, guid: 3010e10d5298f254698a144b63602009,
         type: 2}
@@ -250,7 +250,7 @@ Prefab:
     - target: {fileID: 224222659428773296, guid: 3010e10d5298f254698a144b63602009,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3010e10d5298f254698a144b63602009, type: 2}
@@ -3905,6 +3905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764936461}
   - component: {fileID: 1764936460}
+  - component: {fileID: 1764936462}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -3939,6 +3940,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764936462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764936459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa29a145e7984904ba272c1ce8ede295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1772445573 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1603798329387892, guid: 581e031aa89036641b169bbcbb09091c,
