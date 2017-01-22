@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverSuccess : MonoBehaviour {
+public class DemoComplete : MonoBehaviour {
 
 	public GameObject batPlayer;
 
@@ -16,14 +16,12 @@ public class GameOverSuccess : MonoBehaviour {
 			GUIController.colorIndex = 0;
 			GUIController.health = 3;
 			GUIController.score = 0;
-			Application.LoadLevel ("SuccessScene");
+			Application.LoadLevel ("MainScene");
 		}
 	}
-
+		
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
 }
-
-

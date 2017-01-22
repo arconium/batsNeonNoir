@@ -99,6 +99,10 @@ public class BatController : MonoBehaviour {
 
             GUIController.health -= 1;
             GetComponent<Animator>().Play("Hurt");
+
+			if (GUIController.health <= 0) {
+				Application.LoadLevel ("GameOverScene");
+			}
         }
 	}
 
