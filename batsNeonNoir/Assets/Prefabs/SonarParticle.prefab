@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114336784119347474}
   m_Layer: 0
   m_Name: SonarParticle
-  m_TagString: Untagged
+  m_TagString: SonarParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585037105124470}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -122,7 +122,7 @@ Light:
   m_SpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -156,6 +156,14 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 0}
   light: {fileID: 108942825920668194}
   timeToFade: 1.5
+  lingerLaying: 0
+  lingerInterval: 0.1
+  lingering: 0
+  lingerRate: 0
+  intensity: 0
+  lingeringParent: {fileID: 1623195660968140, guid: 11abc708f9da1754f962d1a983dd42e5,
+    type: 2}
+  doLinger: 1
 --- !u!212 &212746258880200026
 SpriteRenderer:
   m_ObjectHideFlags: 1

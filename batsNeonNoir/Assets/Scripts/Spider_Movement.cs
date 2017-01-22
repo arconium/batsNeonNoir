@@ -10,7 +10,6 @@ public class Spider_Movement : MonoBehaviour {
 	private int current = 0;
 	public float speed = 1.0f;
 	public Transform goal;
-
 	void Start () {
 
 	}
@@ -20,7 +19,9 @@ public class Spider_Movement : MonoBehaviour {
 		if (toWeb) {
 			thing = goal.position;
 		} else {
-			if ((transform.position - points [current]).magnitude < 0.05f) {
+			Vector3 difference = transform.position - points [current];
+			difference.z = 0;
+			if (difference.magnitude < 0.05f) {
 				current = (current + 1) % points.Length;
 			}
 			thing = points [current];

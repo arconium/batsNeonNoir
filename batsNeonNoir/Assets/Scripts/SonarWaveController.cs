@@ -12,7 +12,14 @@ public class SonarWaveController : MonoBehaviour {
 	public float startAngle;
 	public float endAngle;
 	public float particleSpotlightAngle;
-	public Color color;
+	public Color color;	
+	public float lingerInterval;
+
+	public float intensity;
+
+	//worst idea of doing this ever
+	public GameObject lingeringParent;
+	public float lingerRate;
 
 	float t;
 
@@ -28,6 +35,11 @@ public class SonarWaveController : MonoBehaviour {
 			pc.timeToFade = timeToFadeOut;
 			pc.velocity = speed * dir;
 			pc.color = color;
+			pc.lingerInterval = lingerInterval;
+			pc.lingeringParent = lingeringParent;
+			pc.lingerInterval = lingerInterval;
+			pc.lingerRate = lingerRate;
+			pc.intensity = intensity;
 			sonarParticles.Add(newParticle);
 		}
 	}

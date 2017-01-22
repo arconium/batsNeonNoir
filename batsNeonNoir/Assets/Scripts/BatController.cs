@@ -23,19 +23,43 @@ public class BatController : MonoBehaviour {
         public float spotlightAngle;
         public int particleResolution;
         public float angularWaveWidth;
-        public ColorOpt(Color _color, float _speed, float _timeToFadeOut, float _spotlightAngle, int _particleResolution, float _angularWaveWidth) {
+
+        public float lingerInterval;
+        public float lingerRate;
+
+        public float intensity;
+
+        public ColorOpt(
+        Color _color, 
+        float _speed, 
+        float _timeToFadeOut, 
+        float _spotlightAngle, 
+        int _particleResolution, 
+        float _angularWaveWidth,
+        float _lingerInterval,
+        float _lingerRate,
+        float _intensity) {
             color = _color;
             speed = _speed;
             timeToFadeOut = _timeToFadeOut;
             spotlightAngle = _spotlightAngle;
             particleResolution = _particleResolution;
             angularWaveWidth = _angularWaveWidth;
+            lingerInterval = _lingerInterval;
+            lingerRate = _lingerRate;
+            intensity = _intensity;
         }
     }
     bool forward = true;
 
     public int playerHealth = 3;
     public int score = 0;
+
+    public Animation hurt;
+
+    //worst way of doing this ever. BUT DO NOT TOUCH IT. please.
+    public GameObject lingeringParent;
+    public GameObject waveParent;
 
     // public AudioClip batAudioClip;
     void Start () {
@@ -65,13 +89,17 @@ public class BatController : MonoBehaviour {
             60,
             60
         ));*/
+        
 	}    
 
 	public void takedamage(int damage) {
 		if (inv <= 0.0f) {
 			playerHealth -= damage;
 			inv = 2.0f;
-		}
+
+            GUIController.health -= 1;
+            GetComponent<Animator>().Play("Hurt");
+        }
 	}
 
     void Update() {
@@ -81,27 +109,30 @@ public class BatController : MonoBehaviour {
 		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
 		}
-        if (Input.GetMouseButtonDown(0)) {
+
+        if (Input.GetMouseButtonDown(0)) {            
+            //copy paste ;_;
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 pos = transform.position;
+            Vector3 batToMouse = mouse - pos;
+            batToMouse.z = transform.position.z;
+
+            SpawnSonar(colorOpts[GUIController.colorIndex].speed, 
+                batToMouse, 
+                colorOpts[GUIController.colorIndex].angularWaveWidth, 
+                colorOpts[GUIController.colorIndex].particleResolution, 
+                colorOpts[GUIController.colorIndex].timeToFadeOut, 
+                colorOpts[GUIController.colorIndex].spotlightAngle, 
+                colorOpts[GUIController.colorIndex].color,
+                lingeringParent,
+                colorOpts[GUIController.colorIndex].lingerInterval,
+                colorOpts[GUIController.colorIndex].lingerRate,
+                colorOpts[GUIController.colorIndex].intensity
+            );
 
             // Play bat chirp SFX
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
-
-			//copy paste ;_;
-			Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			Vector3 pos = transform.position;
-			Vector3 batToMouse = mouse - pos;
-			batToMouse.z = transform.position.z;
-
-			SpawnSonar(colorOpts[GUIController.colorIndex].speed, 
-				batToMouse, 
-				colorOpts[GUIController.colorIndex].angularWaveWidth, 
-				colorOpts[GUIController.colorIndex].particleResolution, 
-				colorOpts[GUIController.colorIndex].timeToFadeOut, 
-				colorOpts[GUIController.colorIndex].spotlightAngle, 
-				colorOpts[GUIController.colorIndex].color
-			);
-
         }
         if (Input.GetMouseButtonDown(1)) {
 			GUIController.colorIndex = (GUIController.colorIndex + 1) % colorOpts.Count;
@@ -115,11 +146,14 @@ public class BatController : MonoBehaviour {
         int particleResolution,
         float timeToFadeOut,
         float particleSpotlightAngle,
-        Color color) {
-            GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+        Color color,
+        GameObject lingeringParent,
+        float lingerInterval,
+        float lingerRate,
+        float intensity) {//worst idea of doing lingering param ever
+            GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity, waveParent.transform) as GameObject;
 			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
             wc.speed = speed;
-            Debug.Log(Mathf.Atan2(batToMouse.y, batToMouse.x));
             wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;
             wc.endAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI  + angularWaveWidth/2;
             wc.speed = speed;
@@ -127,6 +161,10 @@ public class BatController : MonoBehaviour {
             wc.particleSpotlightAngle = particleSpotlightAngle;
             wc.particleResolution = particleResolution;
             wc.color = color;
+            wc.lingeringParent = lingeringParent;
+            wc.lingerInterval = lingerInterval;
+            wc.lingerRate = lingerRate;
+            wc.intensity = intensity;
     }
 
     void FixedUpdate() {
