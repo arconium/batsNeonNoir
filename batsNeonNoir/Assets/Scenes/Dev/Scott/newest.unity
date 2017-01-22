@@ -299,7 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worthPoints: 100
   player: {fileID: 520784013}
-  audio: {fileID: 0}
 --- !u!61 &272608900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -616,7 +615,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 557f9f818d9e7f647bc8e9fba6033e11, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 695c6462d385b8e479682cb40b9e6d99, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.17
   m_Pitch: 1
@@ -1220,6 +1219,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82021731953176170, guid: ea9325c10a5fb4d4fae72eebedeeeb6a,
+        type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82021731953176170, guid: ea9325c10a5fb4d4fae72eebedeeeb6a,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82021731953176170, guid: ea9325c10a5fb4d4fae72eebedeeeb6a,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793723366213526, guid: ea9325c10a5fb4d4fae72eebedeeeb6a,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114793723366213526, guid: ea9325c10a5fb4d4fae72eebedeeeb6a,
+        type: 2}
+      propertyPath: audioc
+      value: 
+      objectReference: {fileID: 8300000, guid: 2619b54813b0cf94fa58bdd519a535ba, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea9325c10a5fb4d4fae72eebedeeeb6a, type: 2}
   m_IsPrefabParent: 0
@@ -1267,7 +1291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worthPoints: 100
   player: {fileID: 520784013}
-  audio: {fileID: 0}
 --- !u!61 &1118502127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1366,7 +1389,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worthPoints: 100
   player: {fileID: 520784013}
-  audio: {fileID: 0}
 --- !u!61 &1446988453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1530,7 +1552,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worthPoints: 100
   player: {fileID: 520784013}
-  audio: {fileID: 0}
 --- !u!61 &1572240440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3105,7 +3126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worthPoints: 100
   player: {fileID: 520784013}
-  audio: {fileID: 0}
 --- !u!61 &1911576446
 BoxCollider2D:
   m_ObjectHideFlags: 0
