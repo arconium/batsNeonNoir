@@ -469,6 +469,23 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0, g: 1, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
+  speeds:
+  - 1
+  - 1
+  - 1
+  timesToFadeOut:
+  - 2
+  - 2
+  - 2
+  spotlightAngles:
+  - 60
+  - 60
+  - 60
+  particleResolutions: 3c0000003c0000003c000000
+  angularWaveWidths:
+  - 60
+  - 60
+  - 60
   playerHealth: 3
 --- !u!212 &520784016
 SpriteRenderer:
