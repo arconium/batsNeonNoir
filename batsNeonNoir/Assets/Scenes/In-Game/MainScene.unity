@@ -336,6 +336,10 @@ MonoBehaviour:
   batSpeed: 0.68
   sonarWavePrefab: {fileID: 1456724433972024, guid: dde4e8c49ce33ec41a5d1eb9a448fc73,
     type: 2}
+  colorOpts:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
   playerHealth: 3
 --- !u!212 &520784016
 SpriteRenderer:
