@@ -17,8 +17,10 @@ public class EnemyDamage : MonoBehaviour {
     {
         BatController giveDamage = collision.collider.GetComponent<BatController>();
         //BatController giveDamage = player.GetComponent<BatController>();
-        giveDamage.playerHealth -= enemyDamage;
-        
+		GUIController.health -= 1;
+
+		// TODO: IF (playerHealth <= 0) End Game
+         
     }
 
 

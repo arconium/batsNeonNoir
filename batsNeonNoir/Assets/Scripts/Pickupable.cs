@@ -24,7 +24,9 @@ public class Pickupable : MonoBehaviour {
 
     public void GivePoints()
     {
-        player.GetComponent<BatController>().score += worthPoints;
+        //player.GetComponent<BatController>().score += worthPoints;
+		Debug.Log("Worth Points: " + worthPoints);
+		GUIController.score += worthPoints;
     }
 
 
