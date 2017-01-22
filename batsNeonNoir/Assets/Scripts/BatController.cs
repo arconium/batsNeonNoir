@@ -133,6 +133,8 @@ public class BatController : MonoBehaviour {
             // Play bat chirp SFX
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
+
+            
         }
         if (Input.GetMouseButtonDown(1)) {
 			GUIController.colorIndex = (GUIController.colorIndex + 1) % colorOpts.Count;
