@@ -18,10 +18,11 @@ public class BatController : MonoBehaviour {
     public List<float> spotlightAngles;
     public List<int> particleResolutions;
     public List<float> angularWaveWidths;
-    int sonarIndex;
+    int sonarIndex = 0;
     bool forward = true;
 
     public int playerHealth = 3;
+
     public int score = 0;
 
     void Start () {
