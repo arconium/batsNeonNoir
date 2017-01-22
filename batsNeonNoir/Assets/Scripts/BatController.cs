@@ -57,6 +57,7 @@ public class BatController : MonoBehaviour {
 
     //worst way of doing this ever. BUT DO NOT TOUCH IT. please.
     public GameObject lingeringParent;
+    public GameObject waveParent;
 
     // public AudioClip batAudioClip;
     void Start () {
@@ -149,7 +150,7 @@ public class BatController : MonoBehaviour {
         float lingerInterval,
         float lingerRate,
         float intensity) {//worst idea of doing lingering param ever
-            GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+            GameObject newWave = Instantiate(sonarWavePrefab, gameObject.transform.position, Quaternion.identity, waveParent.transform) as GameObject;
 			SonarWaveController wc = newWave.GetComponent<SonarWaveController>();
             wc.speed = speed;
             wc.startAngle = Mathf.Atan2(batToMouse.y, batToMouse.x)*180f/Mathf.PI - angularWaveWidth/2;

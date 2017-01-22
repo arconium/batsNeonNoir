@@ -163,6 +163,7 @@ MonoBehaviour:
   intensity: 0
   lingeringParent: {fileID: 1623195660968140, guid: 11abc708f9da1754f962d1a983dd42e5,
     type: 2}
+  doLinger: 1
 --- !u!212 &212746258880200026
 SpriteRenderer:
   m_ObjectHideFlags: 1
