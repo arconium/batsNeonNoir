@@ -24,7 +24,6 @@ public class Pickupable : MonoBehaviour {
             AudioSource audio = GetComponent<AudioSource>();
 
             audio.Play();
-            Debug.Log(audio.clip);
 
             pickedUp = true;
             GivePoints();

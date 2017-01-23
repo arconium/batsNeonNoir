@@ -150,8 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worthPoints: 100
-  player: {fileID: 0}
-  audio: {fileID: 82021731953176170}
+  player: {fileID: 1066566726224690, guid: d52ebeb84711cc34ebdb61fab85565f9, type: 2}
 --- !u!212 &212333148049102576
 SpriteRenderer:
   m_ObjectHideFlags: 1
