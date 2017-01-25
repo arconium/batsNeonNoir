@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThoughtBubble : MonoBehaviour {
-	
-	GameObject bat;
+
 	public GameObject triggerCollider;
 	public int secondsToDisplay = 5;
-
-	// Use this for initialization
-	void Start () {
-		bat = gameObject.transform.parent.gameObject;
-	}
 
 	// Update is called once per frame
 	void Update () {

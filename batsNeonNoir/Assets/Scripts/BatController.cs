@@ -61,37 +61,6 @@ public class BatController : MonoBehaviour {
     public GameObject lingeringParent;
     public GameObject waveParent;
 
-    // public AudioClip batAudioClip;
-    void Start () {
-        
-        //these are just guesses/defaults for a wave settings
-        /*colorOpts.Add(new ColorOpt(
-            new Color(1,0,0,1),
-            1,
-            2,
-            60,
-            60,
-            60
-        ));
-        colorOpts.Add(new ColorOpt(
-            new Color(0,1,0,1),
-            2,
-            2,
-            60,
-            60,
-            60
-        ));
-        colorOpts.Add(new ColorOpt(
-            new Color(0,0,1,1),
-            3,
-            2,
-            60,
-            60,
-            60
-        ));*/
-        
-	}    
-
 	public void takedamage(int damage) {
 		if (inv <= 0.0f) {
 			playerHealth -= damage;
@@ -100,14 +69,24 @@ public class BatController : MonoBehaviour {
             GUIController.health -= 1;
             GetComponent<Animator>().Play("Hurt");
 
+            SpawnSonar(2f,Vector3.right,360,10,0.5f,120f,Color.white,lingeringParent,2f,2f,0.7f);
+
 			if (GUIController.health <= 0) {
-				Application.LoadLevel ("GameOverScene");
+                foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>()) {
+                    s.enabled = false;
+                }
+                StartCoroutine("GotoLoss");
 			}
 
             AudioSource audiof = GetComponent<AudioSource>();
             audiof.Play();
 
         }
+	}
+
+	IEnumerator GotoLoss() {
+		yield return new WaitForSeconds(1f);
+		Application.LoadLevel ("GameOverScene");
 	}
 
     void Update() {

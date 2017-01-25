@@ -6,8 +6,6 @@ public class Pickupable : MonoBehaviour {
     // Keep this here
     public int worthPoints = 100;
     public GameObject player;
-    bool pickedUp = false;
-
 
     void Start ()
     {
@@ -25,7 +23,6 @@ public class Pickupable : MonoBehaviour {
 
             audio.Play();
 
-            pickedUp = true;
             GivePoints();
             //gameObject.SetActive(false);
 
