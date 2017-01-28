@@ -4651,7 +4651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa29a145e7984904ba272c1ce8ede295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batPlayer: {fileID: 0}
+  batPlayer: {fileID: 520784013}
 --- !u!1 &1772445573 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1603798329387892, guid: 581e031aa89036641b169bbcbb09091c,

@@ -2371,10 +2371,10 @@ RectTransform:
   m_Father: {fileID: 122179880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75, y: 192.5}
-  m_SizeDelta: {x: 150, y: -385}
+  m_AnchoredPosition: {x: -75, y: -13}
+  m_SizeDelta: {x: 150, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569051791
 MonoBehaviour:
@@ -3045,6 +3045,14 @@ Prefab:
         type: 2}
       propertyPath: MinDistance
       value: 0.85351944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417603370335636, guid: 16e5d03e86bcac44b8c2575d3625a1f2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417603370335636, guid: 16e5d03e86bcac44b8c2575d3625a1f2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16e5d03e86bcac44b8c2575d3625a1f2, type: 2}
